@@ -95,7 +95,7 @@
       font-size: calc(1rem + .6vw);
     }
   }
-  
+      
 .navFont {
     font-size: 1rem;
     /* font-weight: bold; */
@@ -103,7 +103,7 @@
   }
   @media (min-width: 800px) {
     .navFont {
-      font-size: calc(1rem + .6vw);
+      font-size: calc(1rem + .25vw);
     }
   }
   
