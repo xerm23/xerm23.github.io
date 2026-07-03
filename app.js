@@ -1,34 +1,41 @@
+// ---------- Mobile nav ----------
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
 
+navToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", open);
+});
 
-const contactForm = document.querySelector(".contact-form");
-// Listen for a submit
-contactForm.addEventListener("submit", submitForm);
+// Close the panel when a nav link is clicked
+navLinks.querySelectorAll("a").forEach((link) =>
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  })
+);
 
-function submitForm(e){
-    e.preventDefault();    
-    // Get input values
-    let email = document.querySelector("#contactMail").value;
-    let message = document.querySelector("#mailText").value;
+// ---------- Video playback ----------
+// The projects section sits below a full-height hero, so autoplaying every
+// card video on load would start 9 videos at once. Instead, play/pause each
+// one as it scrolls into/out of view (muted + playsinline satisfy browser
+// autoplay policies). Skipped entirely when the visitor prefers reduced motion.
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cardVideos = document.querySelectorAll(".card-media video");
 
-    sendEmail(email, message);
-    contactForm.reset();
-}   
+if (!reducedMotion) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
-
-function sendEmail(email, message){
-    Email.send({
-        SecureToken: "ecc1cbe7-d733-4986-8163-76f6be2dc6aa",
-        To: "m.radeljic43@gmail.com",
-        From: "m.radeljic43@gmail.com",
-        Subject: `Someone sent you a message on your website!`,
-        Body: `Email: ${email} <br/> Message: ${message}`,
-    }).then(
-        (message) => alert("Your message has been sent!")
-    );
-
-
-
+  cardVideos.forEach((video) => videoObserver.observe(video));
 }
-
-
-

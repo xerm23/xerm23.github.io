@@ -3,332 +3,450 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Site</title>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/d38073c569.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="myStyle.css">
-
+  <title>Milan Radeljic — Game Developer</title>
+  <meta name="description"
+    content="Portfolio of Milan Radeljic, game developer with 5+ years of experience in Unity, Cocos Creator, C# and TypeScript. Based in Belgrade, Serbia.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Milan Radeljic — Game Developer">
+  <meta property="og:description"
+    content="Portfolio of Milan Radeljic, game developer with 5+ years of experience in Unity, Cocos Creator, C# and TypeScript.">
+  <meta property="og:url" content="https://xerm23.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 navFont ms-2">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">
-        <div style="margin-left: 60px; margin-top: -5px;"> Milan Radeljic</div>
-      </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">About me</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-      </ul>
-      <div class="social-menu d-flex">
-        <a class="social-item d-flex align-items-center navFont" href="https://github.com/xerm23">
-          <i class="fa fa-github fa-2x  me-3"></i>Github</a>
-        <a class="social-item d-flex align-items-center navFont" href="https://www.linkedin.com/in/milanradeljic">
-          <i class="fa fa-linkedin fa-2x  me-3"></i>LinkedIn</a>
+<body id="top">
+
+  <!-- Icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        points="22,6 12,13 2,6" />
+    </symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        points="15 3 21 3 21 9" />
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="10"
+        y1="14" x2="21" y2="3" />
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <polygon fill="currentColor" points="5 3 19 12 5 21 5 3" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="3" y1="6" x2="21" y2="6" />
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="3" y1="12" x2="21" y2="12" />
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="3" y1="18" x2="21" y2="18" />
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="5" y1="5" x2="19" y2="19" />
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="19" y1="5" x2="5" y2="19" />
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <polyline fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+        points="5 8 12 16 19 8" />
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        points="7 10 12 15 17 10" />
+      <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="12"
+        y1="15" x2="12" y2="3" />
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Milan Radeljic<span class="accent">_</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+        aria-label="Toggle navigation">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#icon-menu" /></svg>
+        <svg class="icon icon-shut" aria-hidden="true"><use href="#icon-close" /></svg>
+      </button>
+      <div class="nav-links" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <div class="nav-social">
+          <a href="https://github.com/xerm23" aria-label="GitHub profile" title="GitHub">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/milanradeljic" aria-label="LinkedIn profile" title="LinkedIn">
+            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin" /></svg>
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- Main part -->
-  <main class="container-fluid">
-    <!-- About me -->
-    <div class="container-fluid aboutMe my-2">
-      <div class="row mh-100">
-        <div class="col-xl-8">
-          <div class="d-flex flex-column h-100 justify-content-center align-items-center">
-            <div class="display-4 text-justify"> <span class="display-1"> <strong> <em> &lt;Hello World!/&gt; </strong>
-                </em></span> <br>
-              My name is Milan Radeljic. <br>
-              Unity Game Developer, based in Belgrade, Serbia.<br>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero / About -->
+    <section id="about" class="hero container">
+      <div class="hero-text">
+        <p class="hero-code">&lt; Hello World! /&gt;</p>
+        <h1>My name is <span class="accent">Milan Radeljic</span>.</h1>
+        <p class="hero-sub">Passionate Game Developer with 5+ years of experience.</p>
+        <p class="hero-tagline">Worked with Unity and Cocos Creator, shipping games on mobile, desktop and web.
+          <br>Experienced in using C#, TypeScript and Lua for game development.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">
+            <svg class="icon" aria-hidden="true"><use href="#icon-play" /></svg>
+            See my work</a>
+          <a class="btn btn-outline" href="cv.pdf">
+            <svg class="icon" aria-hidden="true"><use href="#icon-download" /></svg>
+            Download CV</a>
+          <a class="btn btn-outline" href="https://github.com/xerm23">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+            GitHub</a>
+        </div>
+      </div>
+
+      <aside class="xp-card">
+        <h2>Experience</h2>
+
+        <div class="xp-entry">
+          <div class="xp-company">TwogNation <span class="xp-dates">Feb 2024 – Present</span></div>
+          <p class="xp-note">Worked on games for the <a href="https://legacycasino.com">legacycasino.com</a> iGaming platform.</p>
+          <div class="xp-role">
+            <div class="xp-role-head">
+              <h3>Lead Cocos Game Developer</h3>
+              <span class="xp-dates">Jan 2025 – Present</span>
             </div>
+            <p>Spearheaded the development of a brand-new fish games framework in the newest version of Cocos.</p>
+          </div>
+          <div class="xp-role">
+            <div class="xp-role-head">
+              <h3>Cocos Game Developer</h3>
+              <span class="xp-dates">Feb 2024 – Jan 2025</span>
+            </div>
+            <p>Built web games and a custom Cocos Creator extension for reusing common modules across
+              projects.</p>
           </div>
         </div>
-        <div class="col-xl-4 text-center">
-          <img src="Portret.svg" class="w-100 slikaPort">
+
+        <div class="xp-entry">
+          <div class="xp-company">Oxyverse <span class="xp-dates">Mar 2023 – Feb 2024</span></div>
+          <div class="xp-role">
+            <div class="xp-role-head">
+              <h3>Unity Developer</h3>
+            </div>
+            <p>Soft-launched Ludo Animal Heroes, a 3D multiplayer mobile game — building quests, seasonal passes, IAPs
+              and spell logic in C# and Lua.</p>
+          </div>
         </div>
-      </div>
-    </div>
+
+        <div class="xp-entry">
+          <div class="xp-company">Stick and Rope <span class="xp-dates">Jul 2022 – Jun 2023</span></div>
+          <div class="xp-role">
+            <div class="xp-role-head">
+              <h3>Unity Developer</h3>
+            </div>
+            <p>Worked in a 20+ person team on a tech tree system, player progression, weapon mechanics and Photon
+              Fusion networking.</p>
+          </div>
+        </div>
+
+        <div class="xp-entry">
+          <div class="xp-company">Dragonseye Studio <span class="xp-dates">Mar 2021 – Jul 2022</span></div>
+          <div class="xp-role">
+            <div class="xp-role-head">
+              <h3>Unity Developer</h3>
+            </div>
+            <p>Delivered Moontrain end-to-end, cutting the game's size by 30% and boosting frame rates 50% on older
+              Android devices.</p>
+          </div>
+        </div>
+      </aside>
+
+      <a class="scroll-hint" href="#projects" aria-label="Scroll to projects">
+        <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down" /></svg>
+      </a>
+    </section>
 
     <!-- Projects -->
-    <div class="container-fluid min-vh-100 mt-5" id="projects">
-      <div class="display-1 mb-2 text-center"><strong>My projects</strong> </div>
-      <hr>
-      <div class="display-4 text-center mb-3">
-        <strong>Below is a brief showcase of some of my previous works with accent on game projects. </strong><br>
+    <section id="projects" class="container">
+      <h2>My projects</h2>
+      <p class="section-lead">A brief showcase of some of my previous work, with an accent on game projects.</p>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/fishgames.mp4"
+              aria-label="Fish table games gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Fish Table Games</h3>
+            <ul class="chips">
+              <li>Cocos Creator · TypeScript</li>
+              <li class="chip-platform">Web</li>
+            </ul>
+            <p class="card-tagline">Fish table games framework for an iGaming platform.</p>
+            <p>Directed and led development from the ground up, building the shared framework that all fish table
+              games on the platform are built on top of.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://legacycasino.com">
+                Visit site
+                <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/ludolandscape.mp4"
+              aria-label="Ludo Animal Heroes gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Ludo Animal Heroes</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li>Lua</li>
+              <li class="chip-platform">iOS</li>
+              <li class="chip-platform">Android</li>
+            </ul>
+            <p class="card-tagline">Multiplayer Ludo game with deck building and spell casting.</p>
+            <p>Implemented the quest system, seasonal pass, in-app purchases and daily wheel spin. Created many
+              spell effects and handled their interactions both offline and online — client code in C#, server
+              scripts in Lua.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.oxyverse.ludodev">
+                Play Store
+                <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a>
+              <a class="btn btn-outline" href="https://apps.apple.com/app/ludo-animal-heroes/id6447268488">
+                App Store
+                <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/moontrain.mp4"
+              aria-label="Moontrain gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Moontrain</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">Steam</li>
+            </ul>
+            <p class="card-tagline">A dynamic point &amp; click adventure game.</p>
+            <p>Complete development cycle. Beyond gameplay, focused on optimization — reducing draw calls with
+              texture atlases, batching and render-order control. Built many unique mini-games with custom puzzle
+              and physics systems.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://store.steampowered.com/app/2009670/Moontrain/">
+                Steam
+                <svg class="icon" aria-hidden="true"><use href="#icon-external" /></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/idleClicker.mp4"
+              aria-label="Idle Clicker gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Idle Clicker</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">Android</li>
+            </ul>
+            <p class="card-tagline">Solo idle game project for Android.</p>
+            <p>Integrated the Facebook SDK and GameAnalytics SDK. Used DOTween for animations and a custom object
+              pooling system.</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="https://github.com/xerm23/IdleClicker">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/rotating-routes.mp4"
+              aria-label="Rotating Routes gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Rotating Routes</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">Windows</li>
+              <li class="chip-platform">Android</li>
+            </ul>
+            <p class="card-tagline">Puzzle game built around random grid generation.</p>
+            <p>Solo project focused on procedural grid generation and a custom object pooling system — the map can
+              be a giant grid, but tiles are constantly reused, keeping it highly optimized.</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="https://github.com/xerm23/Rotating-Routes">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/helix.mp4"
+              aria-label="Helix Jump remake gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Helix Jump <em>Remake</em></h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">WebGL</li>
+              <li class="chip-platform">Windows</li>
+              <li class="chip-platform">Android</li>
+            </ul>
+            <p class="card-tagline">Remake of the popular mobile game.</p>
+            <p>Click and drag to rotate the helix, letting the ball bounce through the holes. Copyright disclaimer:
+              a reverse-engineered study project, not monetized.</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="https://github.com/xerm23/Helix">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/boban.mp4"
+              aria-label="Boban Vegan gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Boban Vegan</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">WebGL</li>
+              <li class="chip-platform">Windows</li>
+            </ul>
+            <p class="card-tagline">2D platformer with banana-collecting mayhem.</p>
+            <p>Help Boban collect all the bananas before the time runs out. Three levels in the game so far.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://xerm23.itch.io/bobanvegan">
+                <svg class="icon" aria-hidden="true"><use href="#icon-play" /></svg>
+                Play on itch.io</a>
+              <a class="btn btn-outline" href="https://github.com/xerm23/Boban-Vegan">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/jumponaut.mp4"
+              aria-label="Jumponaut gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Jumponaut</h3>
+            <ul class="chips">
+              <li>Unity · C#</li>
+              <li class="chip-platform">WebGL</li>
+              <li class="chip-platform">Windows</li>
+              <li class="chip-platform">Android</li>
+            </ul>
+            <p class="card-tagline">2D mobile endless runner platformer.</p>
+            <p>Collect as many minerals as you can before falling down. Builds for all platforms are available on
+              the itch.io page.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://xerm23.itch.io/jumponaut">
+                <svg class="icon" aria-hidden="true"><use href="#icon-play" /></svg>
+                Play on itch.io</a>
+              <a class="btn btn-outline" href="https://github.com/xerm23/jumponaut">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-media">
+            <video controls loop muted playsinline preload="metadata" src="vids/crossy.mp4"
+              aria-label="Crossy Road remake gameplay video"></video>
+          </div>
+          <div class="card-body">
+            <h3>Crossy Road <em>Remake</em></h3>
+            <ul class="chips">
+              <li>C++</li>
+              <li>Irrlicht</li>
+              <li>MagicaVoxel</li>
+              <li class="chip-platform">Windows</li>
+            </ul>
+            <p class="card-tagline">Voxel remake written in C++ with the Irrlicht engine.</p>
+            <p>Help the chicken cross the road using the arrow keys — move fast or the hawk will get you. Copyright
+              disclaimer: a reverse-engineered study project, not monetized.</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="https://github.com/xerm23/Crossy-Road">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+                Source code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container contact">
+      <div class="contact-inner">
+        <h2>Contact</h2>
+        <p class="section-lead">Have a project in mind, or just want to say hi? Reach out — I'd love to hear from
+          you.</p>
+        <a class="contact-email" href="mailto:m.radeljic43@gmail.com">
+          <svg class="icon" aria-hidden="true"><use href="#icon-mail" /></svg>
+          m.radeljic43@gmail.com</a>
+
+        <div class="contact-links">
+          <a class="btn btn-outline" href="https://github.com/xerm23">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+            GitHub</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/milanradeljic">
+            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin" /></svg>
+            LinkedIn</a>
+        </div>
       </div>
 
-      <!-- Row 1 -->
-      <div class="row d-flex align-items-center">
-        <!-- Col 1 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Ludo Animal Heroes</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C#, Lua scripting<br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-apple mx-1"></i>
-              <i class="fa fa-android mx-1"></i><br><br>
-              Multiplayer Ludo game with deck building and spell casting.<br>
-            </p>
-            <video controls loop autoplay muted src="vids/ludolandscape.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">Implemented features like quest system, seasonal pass, in-app purchases, daily wheel spin.<br>Created many spell effects and handled their interaction both offline and online.<br>Wrote client scripts in C# and servers scripts in Lua scripting language.</p>
-              <div class="card-buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.oxyverse.ludodev" class="btn btn-secondary">
-                <i class="fa-brands fa-google-play"></i>
-                  <i class="fa fa-play-store me-1"></i>
-                  Play Store</a>
-                <a href="https://apps.apple.com/app/ludo-animal-heroes/id6447268488" class="btn btn-secondary">
-                  <i class="fa-brands fa-app-store-ios"></i>
-                  App Store</a>
-              </div>
-            </div>
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>&copy; Milan Radeljic 2026</p>
+          <div class="nav-social">
+            <a href="https://github.com/xerm23" aria-label="GitHub profile" title="GitHub">
+              <svg class="icon" aria-hidden="true"><use href="#icon-github" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/milanradeljic" aria-label="LinkedIn profile" title="LinkedIn">
+              <svg class="icon" aria-hidden="true"><use href="#icon-linkedin" /></svg>
+            </a>
           </div>
         </div>
-        <!-- Col 2 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Moontrain</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C# <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-steam mx-1"></i> <br><br>
-              Moontrain is a dynamic point & click adventure game. <br>
-            </p>
-            <video controls loop autoplay muted src="vids/moontrain.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">Complete development cycle. Besides gameplay, focused on optimization by reducing draw calls and batching by combining textures in atlases and controlling the render order.<br>
-              Created many unique mini games inside which have custom puzzle and physics system.<br>
-              </p>
-              <div class="card-buttons">
-                <a href="https://store.steampowered.com/app/2009670/Moontrain/" class="btn btn-secondary">
-                  <i class="fa fa-steam me-1"></i>
-                  Steam link</a> 
-
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-       <!-- Row 2 -->
-      <div class="row d-flex align-items-center">
-        <!-- Col 1 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Idle Clicker</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C#<br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-android mx-1"></i> <br>
-            </p>
-            <video controls loop autoplay muted src="vids/idleClicker.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">Solo project where I implemented Facebook SDK and GameAnalytics SDK.<br>Used DoTween for animations and custom object pooling system.</p>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/IdleClicker" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Col 2 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Rotating Routes</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C# <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-windows mx-1"></i>
-              <i class="fa fa-android mx-1"></i>
-            </p>
-            <video controls loop autoplay muted src="vids/rotating-routes.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">
-              Solo project with a focus on random grid generation and custom object pooling system<br>
-              Map can be a giant grid, but it will constantly reuse tiles making it much more optimized.<br>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/Rotating-Routes" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 3 -->
-      <div class="row d-flex align-items-center">
-        <!-- Col 1 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Helix Jump <em>Remake</em></div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C# <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-html5 mx-1"></i>
-              <i class="fa fa-windows mx-1"></i>
-              <i class="fa fa-android mx-1"></i>
-            </p>
-            <video controls loop autoplay muted src="vids/helix.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">A remake of mobile game I did in Unity. Click and drag to rotate
-                helix allowing the ball to bounce through holes.
-                <br>Copyright disclaimer: this project is just reverse engineered game, I'm not trying to monetize it.
-              </p>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/Helix" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Col 2 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Boban Vegan</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C# <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-html5 mx-1"></i>
-              <i class="fa fa-windows mx-1"></i>
-            </p>
-            <video controls loop autoplay muted src="vids/boban.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">2D platformer game where you need to help Boban collect all the
-                bananas before the time runs out. <br> There are 3 levels in game so far.</p>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/Boban-Vegan" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-                <a href="https://xerm23.itch.io/bobanvegan" class="btn btn-primary"><i
-                    class="fab fa-itch-io fa-lg me-1"></i>Play!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Row 4-->
-      <div class="row d-flex align-items-center">
-        <!-- Col 1 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Jumponaut</div>
-            <p class="card-text h4"> <strong>Technologies:</strong>
-              <i class="fab fa-unity"></i> - C# <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-html5 mx-1"></i>
-              <i class="fa fa-windows mx-1"></i>
-              <i class="fa fa-android mx-1"></i>
-            </p>
-            <video controls loop autoplay muted src="vids/jumponaut.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">2D Mobile endless runner platformer. Collect as much minerals before
-                falling down. <br> Download build files for all platforms on itchio link below!</p>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/jumponaut" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-                <a href="https://xerm23.itch.io/jumponaut" class="btn btn-primary">
-                  <i class="fab fa-itch-io fa-lg me-1"></i>
-                  Play!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Col 2 -->
-        <div class="col-lg-6 my-2">
-          <div class="card text-center">
-            <div class="card-header h1">Crossy Road Remake</div>
-            <p class="card-text h4"> <strong>Technologies:</strong> C++, Irrlicht, MagicaVoxel <br>
-              <strong>Platforms:</strong>
-              <i class="fa fa-windows fa" style="margin-right: 5px;"></i>
-            </p>
-            <video controls loop autoplay muted src="vids/crossy.mp4" class="myVid"></video>
-            <div class="card-body mb-5">
-              <p class="card-text h5 text-justify">Help chicken cross the road by using arrow keys. Move fast or the
-                hawk is going to get you.
-                <br>Copyright disclaimer: this project is just reverse engineered game, I'm not trying to monetize it.
-              </p>
-              <div class="card-buttons">
-                <a href="https://github.com/xerm23/Crossy-Road" class="btn btn-secondary">
-                  <i class="fa fa-github fa-lg me-1"></i>
-                  Source code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact section -->
-    <div class="container-fluid text-center" id="contact">
-
-      <div class="display-2"> <strong>Contact</strong></div>
-      <hr>
-      <p class="display-5">
-        <i class="fa fa-envelope mx-1"></i>
-        <a href=mailto:m.radeljic43@gmail.com> m.radeljic43@gmail.com</a>
-      </p>
-      <div class="container-md" style="max-width: 700px;">
-        <p class="display-5">
-          <strong>Or leave a message below.
-          </strong>
-        </p>
-
-        <div class="col-lg">
-          <form class="contact-form">
-            <!-- Message -->
-            <label for="mailText" class="display-6"> <strong>Your message:</strong></label>
-            <textarea class="form-control my-2" id="mailText" rows="3" required="required"></textarea>
-            <!-- Mail Address -->
-            <label for="contactMail" class="display-6"><strong>Your email:</strong></label>
-            <input type="email" required="required" class="form-control mt-2" id="contactMail">
-            <div id="emailHelp" class="form-text">Your mail won't be shared with anyone else.</div>
-            <!-- Button -->
-            <button type="submit" class="btn btn-primary my-2 w-25">Submit</button>
-          </form>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Footer -->
-    <div class="mt-4 footerHolder">
-      <div id="footer">
-        <p>&copy; Milan Radeljic 2023</p>
-      </div>
-    </div>
+      </footer>
+    </section>
   </main>
 
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-
-  <!-- My JS -->
-  <script src="app.js"></script>
-
 </body>
-
 
 </html>
