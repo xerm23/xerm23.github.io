@@ -16,14 +16,26 @@ navLinks.querySelectorAll("a").forEach((link) =>
 );
 
 // ---------- Video playback ----------
-// Videos autoplay via the HTML autoplay attribute (muted + playsinline
-// satisfy browser autoplay policies). Skip it when the visitor prefers
-// reduced motion.
+// The projects section sits below a full-height hero, so autoplaying every
+// card video on load would start 9 videos at once. Instead, play/pause each
+// one as it scrolls into/out of view (muted + playsinline satisfy browser
+// autoplay policies). Skipped entirely when the visitor prefers reduced motion.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cardVideos = document.querySelectorAll(".card-media video");
 
-if (reducedMotion) {
-  document.querySelectorAll(".card-media video").forEach((video) => {
-    video.removeAttribute("autoplay");
-    video.pause();
-  });
+if (!reducedMotion) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  cardVideos.forEach((video) => videoObserver.observe(video));
 }
