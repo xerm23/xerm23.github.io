@@ -1,0 +1,617 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-2: #1c2129;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #9aa4af;
+  --accent: #22d3ee;
+  --accent-strong: #67e3f5;
+  --accent-contrast: #062227;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+  --header-h: 64px;
+  --container-max: 1200px;
+}
+
+/* Widen the container on larger screens so content doesn't drown in side
+   margins; capped at 1760px so the project grid tops out at 3 columns
+   instead of stretching to 4 on ultrawide monitors */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+  }
+}
+
+@media (min-width: 2400px) {
+  :root {
+    --container-max: 1760px;
+  }
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchor links land right below the sticky nav */
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 6.5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  /* Each section fills at least one screen below the header */
+  min-height: calc(100svh - var(--header-h));
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+}
+
+.section-lead {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: -0.25rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-links > a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-links > a:hover {
+  color: var(--text);
+}
+
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-social a {
+  color: var(--muted);
+  display: flex;
+  transition: color 0.15s ease;
+}
+
+.nav-social a:hover {
+  color: var(--accent);
+}
+
+.nav-social .icon {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 0.45rem 0.55rem;
+  cursor: pointer;
+}
+
+.nav-toggle .icon {
+  width: 1.4em;
+  height: 1.4em;
+  display: block;
+}
+
+.nav-toggle .icon-shut,
+.nav-toggle[aria-expanded="true"] .icon-open {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .icon-shut {
+  display: block;
+}
+
+@media (max-width: 719px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem clamp(1rem, 4vw, 2rem) 1.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-text {
+  /* No max-width: let it fill whatever the grid column actually gives it,
+     so the headline gets full use of the space instead of being capped
+     narrower than its own column (which was the source of the dead gap) */
+  min-width: 0;
+}
+
+@media (min-width: 1000px) {
+  .hero {
+    /* Experience card column only takes as much room as the card itself
+       needs (capped at its own 640px max-width); the text column gets
+       everything else instead of an arbitrary fr split */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+  }
+
+  .xp-card {
+    /* Only anchor to the right once the two-column layout is active —
+       below this breakpoint the hero stacks into a single column, where
+       this would push the card off-center instead of centering it like
+       every other section */
+    justify-self: end;
+  }
+}
+
+/* Experience card */
+.xp-card {
+  max-width: 640px;
+  width: 100%;
+  justify-self: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+  font-size: 0.95rem;
+}
+
+.xp-card > h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.xp-entry + .xp-entry {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.xp-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.xp-dates {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.xp-note {
+  color: var(--muted);
+  margin: 0.3rem 0 1.1rem;
+}
+
+.xp-role {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  margin-top: 1.1rem;
+}
+
+.xp-role-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.xp-role h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.xp-role p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+/* Only shown on large screens — on mobile the hero already overflows,
+   so the page visibly continues without a hint */
+.scroll-hint {
+  display: none;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  padding: 0.5rem;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@media (min-width: 1000px) {
+  .scroll-hint {
+    display: flex;
+  }
+}
+
+.scroll-hint:hover {
+  color: var(--accent);
+}
+
+.scroll-hint .icon {
+  width: 2.75em;
+  height: 2.75em;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+.hero-code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  margin: 0 0 0.75rem;
+}
+
+.hero-sub {
+  font-size: clamp(1.3rem, 3vw, 1.85rem);
+  font-weight: 500;
+  margin: 0 0 0.6rem;
+}
+
+.hero-tagline {
+  color: var(--muted);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  min-width: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--muted);
+  background: var(--surface-2);
+}
+
+/* ---------- Projects ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 1.75rem;
+  margin-top: 2.25rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #3d4550;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.card-media video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.card-body h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card-body p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+}
+
+.card-tagline {
+  color: var(--text) !important;
+  font-weight: 500;
+}
+
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.chips li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.chips .chip-platform {
+  color: var(--muted);
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+.contact-inner {
+  margin-block: auto;
+  width: 100%;
+}
+
+.contact .section-lead {
+  margin-inline: auto;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.contact-email:hover {
+  text-decoration: underline;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* ---------- Footer (lives at the bottom of the contact screen) ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 1.5rem;
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
