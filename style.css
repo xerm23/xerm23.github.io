@@ -549,6 +549,10 @@ section {
   display: flex;
   flex-direction: column;
   padding-bottom: 0;
+  /* The footer sits outside <main>, but should share the contact screen:
+     subtract its approximate rendered height (padding + line + border +
+     margin-top) so contact + footer together fill one viewport */
+  min-height: calc(100svh - var(--header-h) - 108px);
 }
 
 .contact-inner {
