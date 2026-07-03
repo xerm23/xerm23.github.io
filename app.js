@@ -84,10 +84,10 @@ if (particleCanvas && !reducedMotion && !saveData) {
 
 function initParticles(ctx) {
   const cfg = {
-    densityDesktop: 3, // particles per 5000px² of viewport
+    densityDesktop: 2, // particles per 5000px² of viewport
     densityCoarse: 1, // touch devices get half the density
     countMin: 800,
-    countMax: 2000,
+    countMax: 1000,
     damping: 0.8, // velocity retained per frame
     dampingScroll: 0, // extra damping as the page scrolls down
     accel: 1.15, // pull toward the field direction
@@ -102,8 +102,8 @@ function initParticles(ctx) {
     swirl: 3,
     fade: .5, // trail fade per frame; higher = shorter trails
     fadeScroll: 0.3, // trails shorten while scrolled down the page
-    lineWidth: 2,
-    opacities: [.25, .4, .5],
+    lineWidth: 1,
+    opacities: [.75, .4, .5],
   };
 
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
