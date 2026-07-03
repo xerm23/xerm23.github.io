@@ -16,6 +16,7 @@
   --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
   --header-h: 64px;
   --container-max: 1200px;
+  --section-pad: clamp(2rem, 5vw, 3.5rem);
 }
 
 /* Widen the container on larger screens so content doesn't drown in side
@@ -93,7 +94,7 @@ video {
 section {
   /* Each section fills at least one screen below the header */
   min-height: calc(100svh - var(--header-h));
-  padding-block: clamp(2rem, 5vw, 3.5rem);
+  padding-block: var(--section-pad);
 }
 
 .container {
@@ -280,6 +281,19 @@ section {
   }
 }
 
+@media (max-width: 999px) {
+  .hero-text {
+    /* When the hero stacks, give the intro the whole first screen so the
+       experience card starts on the next one instead of peeking in at
+       the bottom */
+    min-height: calc(100svh - var(--header-h) - var(--section-pad));
+    display: grid;
+    align-content: center;
+    /* Anchor for the mobile scroll hint */
+    position: relative;
+  }
+}
+
 /* Experience card */
 .xp-card {
   max-width: 640px;
@@ -354,8 +368,12 @@ section {
   color: var(--muted);
 }
 
-/* Only shown on large screens — on mobile the hero already overflows,
-   so the page visibly continues without a hint */
+/* Scroll affordance. Two copies exist: the desktop one sits at the bottom
+   of the two-column hero and points at projects; the mobile one lives
+   inside the full-screen intro and points at the experience card, since
+   nothing peeks in from below anymore. Each is only shown where it makes
+   sense (the mobile one also needs a tall enough screen to not crowd
+   the buttons). */
 .scroll-hint {
   display: none;
   position: absolute;
@@ -368,8 +386,20 @@ section {
 }
 
 @media (min-width: 1000px) {
-  .scroll-hint {
+  .scroll-hint-desktop {
     display: flex;
+  }
+}
+
+@media (max-width: 999px) and (min-height: 720px) {
+  .scroll-hint-mobile {
+    display: flex;
+    bottom: 0.5rem;
+  }
+
+  .scroll-hint-mobile .icon {
+    width: 2.25em;
+    height: 2.25em;
   }
 }
 
